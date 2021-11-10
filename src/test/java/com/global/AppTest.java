@@ -3,6 +3,7 @@ package com.global;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.global.testBase.ScreenshotListener;
 import com.global.testBase.TestBase;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -74,17 +75,22 @@ public class AppTest extends TestBase
     @Test
     public void addToShoppingCart() throws InterruptedException {
         driver = getChromeDriver();
-        String str = "T-shirt";
+        String str = "Dress";
         int size = getSearchSize(str);
-        if(size>0) {
-            List<WebElement> items = driver.findElements(By.cssSelector(searchStrBeginning+ str + searchStrEnding));
-            for (WebElement item: items) {
-                Actions action = new Actions(driver);
-                action.moveToElement(item).pause(java.time.Duration.ofSeconds(1)).perform();
-                driver.findElement(homePage.addToCartBtn).click();
-                // continue shopping
-                driver.findElement(homePage.continueShoppingBtn).click();
+        List<WebElement> items = driver.findElements(By.cssSelector(searchStrBeginning+ str + searchStrEnding));
+        for (int i=0; i<items.size(); i++) {
+            Actions action = new Actions(driver);
+            action.moveToElement(items.get(i)).pause(java.time.Duration.ofSeconds(1)).perform();
+            /*
+            Since there are multiple Add To Cart buttons, click only the one that is displayed.
+             */
+            List<WebElement> addButtons = driver.findElements(homePage.addToCartBtn);
+            for(WebElement button: addButtons){
+                if(button.isDisplayed()) {button.click();}
             }
+            // continue shopping
+            driver.findElement(homePage.continueShoppingBtn).click();
+//                items = driver.findElements(By.cssSelector(searchStrBeginning+ str + searchStrEnding));
         }
         // check cart
         driver.findElement(homePage.openCart).click();

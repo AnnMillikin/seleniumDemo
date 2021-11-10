@@ -33,6 +33,13 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.portals.jetspeed-2/jetspeed-fileutils-maven-plugin -->
+    <dependency>
+      <groupId>org.apache.portals.jetspeed-2</groupId>
+      <artifactId>jetspeed-fileutils-maven-plugin</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -101,6 +108,14 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+          <configuration>
+            <properties>
+              <property>
+                <name>listener</name>
+                <value>com.global.testBase.ScreenshotListener</value>
+              </property>
+            </properties>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>

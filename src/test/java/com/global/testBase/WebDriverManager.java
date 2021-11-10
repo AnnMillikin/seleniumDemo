@@ -1,13 +1,18 @@
 package com.global.testBase;
+import org.junit.runner.notification.Failure;
+import org.junit.runner.notification.RunListener;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class WebDriverManager {
+public class WebDriverManager extends ScreenshotListener {
     public static WebDriver driver;
 
     public static String url = "http://automationpractice.com/index.php";
@@ -16,6 +21,7 @@ public class WebDriverManager {
     public static WebDriver getChromeDriver() {
         return driver;
     }
+
 
     public static WebDriver setChromeDriver() {
         System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
