@@ -10,7 +10,11 @@ public class HomePage {
     public String title = "My Store";
 
     public By searchBox = By.id("search_query_top");
-    public By cart = By.cssSelector("a[title='View my shopping cart']");
+
+    public By openCart = By.cssSelector("a[title='View my shopping cart']");
+    public By addToCartBtn = By.cssSelector("a[title='Add to cart']");
+    public By continueShoppingBtn = By.cssSelector(".btn[title = 'Continue shopping']");
+    public By totalPrice = By.cssSelector("#total_price");
 
     public By signIn = By.cssSelector(".login");
 
