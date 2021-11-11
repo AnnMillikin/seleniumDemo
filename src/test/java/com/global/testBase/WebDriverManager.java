@@ -30,7 +30,7 @@ public class WebDriverManager  extends ScreenshotListener {
         driver = new ChromeDriver();
         driver.navigate().to(url);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  TODO add global wait that's not deprecated
         return driver;
     }
 
