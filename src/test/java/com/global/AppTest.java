@@ -7,6 +7,7 @@ import com.global.testBase.ScreenshotListener;
 import com.global.testBase.TestBase;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -66,8 +67,8 @@ public class AppTest extends TestBase
     public void searchBox()
     {
         driver = getChromeDriver();
-        int size = getSearchSize("dress");
-        assertTrue(size > 0, size + "dress(es) found");
+        int size = getSearchSize("Dress");
+        assertTrue(size > 0, size + " Dress(es) found, expected: > 0");
     }
 
     /**
@@ -91,9 +92,11 @@ public class AppTest extends TestBase
             }
             // continue shopping
             driver.findElement(homePage.continueShoppingBtn).click();
-//                items = driver.findElements(By.cssSelector(searchStrBeginning+ str + searchStrEnding));
         }
-        // check cart
+        // check cart after escape key
+        Actions action = new Actions(driver);
+        WebElement logo = driver.findElement(homePage.headerLogo);
+        action.moveToElement(logo).pause(java.time.Duration.ofSeconds(1)).sendKeys(Keys.ESCAPE).pause(java.time.Duration.ofSeconds(1)).perform();
         driver.findElement(homePage.openCart).click();
         String totalPriceStr = driver.findElement(homePage.totalPrice).getText();
         totalPriceStr= totalPriceStr.replace("$", "");

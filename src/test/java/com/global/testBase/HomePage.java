@@ -8,6 +8,7 @@ public class HomePage {
      * Web element locators for the home page
      */
     public String title = "My Store";
+    public By headerLogo = By.id("header_logo");
 
     public By searchBox = By.id("search_query_top");
 
