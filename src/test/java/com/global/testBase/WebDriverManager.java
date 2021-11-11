@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class WebDriverManager { //extends ScreenshotListener {
+public class WebDriverManager  extends ScreenshotListener {
     public static WebDriver driver;
 
     public static String url = "http://automationpractice.com/index.php";

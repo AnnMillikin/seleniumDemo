@@ -3,10 +3,11 @@ package com.global;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.global.testBase.ScreenshotListener;
 import com.global.testBase.TestBase;
 import org.junit.jupiter.api.*;
-import org.junit.runner.JUnitCore;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,18 +16,17 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
-/**
- * Unit test for simple App.
- */
+@RunWith(TestRunner.class)
+@SelectPackages({"com.global.testBase","com.global.driver","com.global"})
 public class AppTest extends TestBase
 {
     public WebDriver driver;
 
     @BeforeAll
     static void setupListener() {
-        final JUnitCore junit = new JUnitCore();
-        junit.addListener(new ScreenshotListener());
-        junit.run();
+//        final JUnitCore junit = new JUnitCore();  // not working
+//        junit.addListener(new ScreenshotListener());
+//        junit.run();
     }
 
     @BeforeEach
@@ -51,7 +51,10 @@ public class AppTest extends TestBase
 //    void removeListener(){ junit.removeListener(new ScreenshotListener);}
 
     @Test
-    public void failMe(){assertTrue(false);}
+    public void failMe() throws Exception {
+        throw new Exception("fail fucker"); // doesn't trigger screenshot
+        //assertTrue(false); // doesn't trigger screenshot
+        }
 
     /**
      * open website
