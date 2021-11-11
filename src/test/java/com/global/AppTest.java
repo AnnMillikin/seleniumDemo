@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.global.testBase.TestBase;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.suite.api.SelectPackages;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -20,7 +18,7 @@ import java.util.List;
 //@SelectPackages({"com.global.testBase","com.global.driver","com.global"})
 public class AppTest extends TestBase
 {
-    public WebDriver driver;
+    WebDriver driver;
 
     @BeforeAll
     static void setupListener() {
@@ -32,14 +30,7 @@ public class AppTest extends TestBase
     @BeforeEach
     void setupTest() {
         System.out.println("=== BeforeEach ===");
-//        JUnitCore core= new JUnitCore();
-//        core.addListener(new RingingListener());
-//        core.run(MyTestClass.class);   // I get error when calling AppTest.class
-        driver = setChromeDriver();
-//        final JUnitCore junit = new JUnitCore(); // this only runs testRunFinished
-//        junit.addListener(new ScreenshotListener());
-//        junit.run();
-
+          driver = setChromeDriver();
     }
 
     @AfterEach
@@ -59,7 +50,7 @@ public class AppTest extends TestBase
     /**
      * open website
      */
-//    @Test  // TODO add all @Test back (remove comment)
+    @Test
     public void openUrl()
     {
         String actualTitle = driver.getTitle();
@@ -69,7 +60,7 @@ public class AppTest extends TestBase
     /**
      * check login page title
      */
-//    @Test
+    @Test
     public void checkLoginPage()
     {
         driver = getChromeDriver();
@@ -83,7 +74,7 @@ public class AppTest extends TestBase
     /**
      * search for items
      */
-//    @Test
+    @Test
     public void searchBox()
     {
         driver = getChromeDriver();
@@ -94,7 +85,7 @@ public class AppTest extends TestBase
     /**
      * select items, add items to cart and assert the total price is > 0
      */
-//    @Test
+    @Test
     public void addToShoppingCart() throws InterruptedException {
         driver = getChromeDriver();
         String str = "Dress";
