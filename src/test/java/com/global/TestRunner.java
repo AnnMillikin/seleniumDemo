@@ -8,8 +8,12 @@ import org.junit.runner.notification.StoppedByUserException;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.InitializationError;
 import org.junit.runners.model.Statement;
+import org.junit.runners.model.TestClass;
 
 public class TestRunner extends BlockJUnit4ClassRunner {
+    public TestRunner(TestClass AppTest) throws InitializationError {
+        super(AppTest);
+    }
 
 //    public void main(String... args) { // TODO didn't work
 //        JUnitCore core= new JUnitCore();
@@ -18,9 +22,9 @@ public class TestRunner extends BlockJUnit4ClassRunner {
 //    }
 
     // https://www.swtestacademy.com/junit-listeners/
-public TestRunner(Class<?> clazz) throws InitializationError {
-    super(clazz);
-}
+//public TestRunner(Class<?> clazz) throws InitializationError {
+//    super(clazz);
+//}
     @Override
     public void run(RunNotifier notifier) {
         System.out.println("=== Executing run()");

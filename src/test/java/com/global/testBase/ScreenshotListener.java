@@ -1,6 +1,5 @@
 package com.global.testBase;
 
-import com.global.AppTest;
 import org.apache.commons.io.FileUtils;
 import org.junit.runner.Description;
 import org.junit.runner.JUnitCore;

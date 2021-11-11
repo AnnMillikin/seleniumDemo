@@ -17,7 +17,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.List;
 
 @RunWith(TestRunner.class)
-@SelectPackages({"com.global.testBase","com.global.driver","com.global"})
+//@SelectPackages({"com.global.testBase","com.global.driver","com.global"})
 public class AppTest extends TestBase
 {
     public WebDriver driver;
