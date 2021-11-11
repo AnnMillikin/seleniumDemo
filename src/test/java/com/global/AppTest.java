@@ -27,6 +27,7 @@ public class AppTest extends TestBase
 
     @BeforeEach
     void setupTest() {
+        System.out.println("=== BeforeEach ===");
           driver = setChromeDriver();
     }
 
