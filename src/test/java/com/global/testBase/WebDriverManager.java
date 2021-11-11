@@ -30,7 +30,6 @@ public class WebDriverManager { //extends ScreenshotListener {
         driver = new ChromeDriver();
         driver.navigate().to(url);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }
 

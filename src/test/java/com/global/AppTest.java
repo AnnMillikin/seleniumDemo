@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.global.testBase.ScreenshotListener;
 import com.global.testBase.TestBase;
 import org.junit.jupiter.api.*;
+import org.junit.runner.JUnitCore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -19,27 +20,43 @@ import java.util.List;
  */
 public class AppTest extends TestBase
 {
-    WebDriver driver;
+    public WebDriver driver;
 
     @BeforeAll
-    static void setupClass() {
-
+    static void setupListener() {
+        final JUnitCore junit = new JUnitCore();
+        junit.addListener(new ScreenshotListener());
+        junit.run();
     }
 
     @BeforeEach
     void setupTest() {
         System.out.println("=== BeforeEach ===");
-          driver = setChromeDriver();
+//        JUnitCore core= new JUnitCore();
+//        core.addListener(new RingingListener());
+//        core.run(MyTestClass.class);   // I get error when calling AppTest.class
+        driver = setChromeDriver();
+//        final JUnitCore junit = new JUnitCore(); // this only runs testRunFinished
+//        junit.addListener(new ScreenshotListener());
+//        junit.run();
+
     }
 
     @AfterEach
     void quit() {
         tearDown(driver);
     }
+
+//    @AfterAll // TODO
+//    void removeListener(){ junit.removeListener(new ScreenshotListener);}
+
+    @Test
+    public void failMe(){assertTrue(false);}
+
     /**
      * open website
      */
-    @Test
+//    @Test  // TODO add all @Test back (remove comment)
     public void openUrl()
     {
         String actualTitle = driver.getTitle();
@@ -49,7 +66,7 @@ public class AppTest extends TestBase
     /**
      * check login page title
      */
-    @Test
+//    @Test
     public void checkLoginPage()
     {
         driver = getChromeDriver();
@@ -63,7 +80,7 @@ public class AppTest extends TestBase
     /**
      * search for items
      */
-    @Test
+//    @Test
     public void searchBox()
     {
         driver = getChromeDriver();
@@ -74,7 +91,7 @@ public class AppTest extends TestBase
     /**
      * select items, add items to cart and assert the total price is > 0
      */
-    @Test
+//    @Test
     public void addToShoppingCart() throws InterruptedException {
         driver = getChromeDriver();
         String str = "Dress";
