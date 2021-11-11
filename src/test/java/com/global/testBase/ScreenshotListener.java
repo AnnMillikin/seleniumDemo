@@ -12,7 +12,11 @@ import static com.global.testBase.WebDriverManager.getChromeDriver;
 
 public class ScreenshotListener extends RunListener {
 
-    private TakesScreenshot screenshotTaker;
+    private TakesScreenshot screenshotTaker;  // TODO how is this used?
+
+    public ScreenshotListener(TakesScreenshot screenshotTaker) {
+        this.screenshotTaker = screenshotTaker;
+    }
 
     @Override
     public void testFailure(Failure failure) throws Exception {
