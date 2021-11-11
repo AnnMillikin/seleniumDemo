@@ -51,6 +51,7 @@ description - the description of the test that just ran
 
     @Override
     public void testFailure(Failure failure) throws Exception {
+        System.out.println("=== testFailure ===");
         File scrFile = ((TakesScreenshot) getChromeDriver()).getScreenshotAs(OutputType.FILE);
         String fileName = UUID.randomUUID().toString() + getClass().getName();
         File targetFile = new File("src/test/screenshots" + fileName + ".png");

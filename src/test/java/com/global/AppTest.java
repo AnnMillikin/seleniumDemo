@@ -3,8 +3,11 @@ package com.global;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.global.testBase.ScreenshotListener;
 import com.global.testBase.TestBase;
+import junit.textui.TestRunner;
 import org.junit.jupiter.api.*;
+import org.junit.runner.JUnitCore;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,11 +17,16 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
-@RunWith(TestRunner.class)
-//@SelectPackages({"com.global.testBase","com.global.driver","com.global"})
 public class AppTest extends TestBase
 {
     WebDriver driver;
+
+    public AppTest() {
+        System.out.println("=== AppTest constructor ===");
+        final JUnitCore junit = new JUnitCore();
+        junit.addListener(new ScreenshotListener());
+        junit.run();
+    }
 
     @BeforeAll
     static void setupListener() {
@@ -50,7 +58,7 @@ public class AppTest extends TestBase
     /**
      * open website
      */
-    @Test
+//    @Test TODO remove comment
     public void openUrl()
     {
         String actualTitle = driver.getTitle();
@@ -60,7 +68,7 @@ public class AppTest extends TestBase
     /**
      * check login page title
      */
-    @Test
+//    @Test TODO remove comment
     public void checkLoginPage()
     {
         driver = getChromeDriver();
@@ -74,7 +82,7 @@ public class AppTest extends TestBase
     /**
      * search for items
      */
-    @Test
+//    @Test TODO remove comment
     public void searchBox()
     {
         driver = getChromeDriver();
@@ -85,7 +93,7 @@ public class AppTest extends TestBase
     /**
      * select items, add items to cart and assert the total price is > 0
      */
-    @Test
+//    @Test  TODO remove comment
     public void addToShoppingCart() throws InterruptedException {
         driver = getChromeDriver();
         String str = "Dress";
