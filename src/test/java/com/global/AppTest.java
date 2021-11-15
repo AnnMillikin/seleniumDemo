@@ -9,10 +9,7 @@ import junit.textui.TestRunner;
 import org.junit.jupiter.api.*;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
@@ -20,13 +17,13 @@ import java.util.List;
 public class AppTest extends TestBase
 {
     WebDriver driver;
-
-    public AppTest() {
-        System.out.println("=== AppTest constructor ===");
-        final JUnitCore junit = new JUnitCore();
-        junit.addListener(new ScreenshotListener());
-        junit.run();
-    }
+//
+//    public AppTest() {
+//        System.out.println("=== AppTest constructor ===");
+//        final JUnitCore junit = new JUnitCore();
+//        junit.addListener(new ScreenshotListener());
+//        junit.run();
+//    }
 
     @BeforeAll
     static void setupListener() {
@@ -39,6 +36,8 @@ public class AppTest extends TestBase
     void setupTest() {
         System.out.println("=== BeforeEach ===");
           driver = setChromeDriver();
+//        JUnitCore junit = new JUnitCore();
+//        junit.addListener(new ScreenshotListener((TakesScreenshot) getChromeDriver()));
     }
 
     @AfterEach

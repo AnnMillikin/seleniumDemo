@@ -16,11 +16,10 @@ import static com.global.testBase.WebDriverManager.getChromeDriver;
 public class ScreenshotListener extends RunListener {
 
     private TakesScreenshot screenshotTaker;  // TODO how is this used?
-
-    public ScreenshotListener() {
-        System.out.println("=== ScreenshotListener constructor ===");
-
-    }
+//
+//    public ScreenshotListener(TakesScreenshot screenshotTaker) {
+//        this.screenshotTaker = screenshotTaker;
+//    }
 
 //    public void main(String... args) { // not working
 //        JUnitCore core= new JUnitCore();
