@@ -1,56 +1,44 @@
 package com.global;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import com.global.testBase.TestBase;
-import org.junit.jupiter.api.*;
-import org.junit.runner.RunWith;
+
+import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
-@RunWith(TestRunner.class)
-//@SelectPackages({"com.global.testBase","com.global.driver","com.global"})
+import static org.testng.Assert.assertTrue;
+import static org.testng.AssertJUnit.assertEquals;
+
 public class AppTest extends TestBase
-{
+{ // TODO add @Test back in after 508 resource limit error goes away
     WebDriver driver;
 
-    @BeforeAll
-    static void setupListener() {
-//        final JUnitCore junit = new JUnitCore();  // not working
-//        junit.addListener(new ScreenshotListener());
-//        junit.run();
-    }
-
-    @BeforeEach
-    void setupTest() {
-        System.out.println("=== BeforeEach ===");
+    @BeforeTest
+    public void setupTest() {
+        System.out.println("=== Before Test ===");
           driver = setChromeDriver();
     }
 
-    @AfterEach
+    @AfterTest
     void quit() {
+        System.out.println("=== After Test ===");
         tearDown(driver);
     }
 
-//    @AfterAll // TODO
-//    void removeListener(){ junit.removeListener(new ScreenshotListener);}
-
     @Test
     public void failMe() throws Exception {
-        throw new Exception("fail fucker"); // doesn't trigger screenshot
-        //assertTrue(false); // doesn't trigger screenshot
+        throw new Exception("fail fucker"); // doesn't trigger screenshot  TODO remove
         }
 
     /**
      * open website
      */
-    @Test
+//    @Test
     public void openUrl()
     {
         String actualTitle = driver.getTitle();
@@ -60,7 +48,7 @@ public class AppTest extends TestBase
     /**
      * check login page title
      */
-    @Test
+//    @Test
     public void checkLoginPage()
     {
         driver = getChromeDriver();
@@ -74,7 +62,7 @@ public class AppTest extends TestBase
     /**
      * search for items
      */
-    @Test
+//    @Test
     public void searchBox()
     {
         driver = getChromeDriver();
@@ -85,7 +73,7 @@ public class AppTest extends TestBase
     /**
      * select items, add items to cart and assert the total price is > 0
      */
-    @Test
+//    @Test
     public void addToShoppingCart() throws InterruptedException {
         driver = getChromeDriver();
         String str = "Dress";
