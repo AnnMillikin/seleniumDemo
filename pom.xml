@@ -29,7 +29,6 @@
       <scope>test</scope>
     </dependency>
 
-
     <!-- https://mvnrepository.com/artifact/org.apache.portals.jetspeed-2/jetspeed-fileutils-maven-plugin -->
     <dependency>
       <groupId>org.apache.portals.jetspeed-2</groupId>
@@ -123,7 +122,27 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+
+        <!--    will clean the screenshots directory with `mvn clean`-->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
+          <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+          <configuration>
+            <filesets>
+              <fileset>
+                <directory>src/test/screenshots</directory>
+                <includes>
+                  <include>**/*</include>
+                </includes>
+                <followSymlinks>false</followSymlinks>
+              </fileset>
+            </filesets>
+          </configuration>
+          </plugin>
       </plugins>
+
     </pluginManagement>
   </build>
 

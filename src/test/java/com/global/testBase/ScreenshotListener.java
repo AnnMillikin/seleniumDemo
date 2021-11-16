@@ -31,8 +31,8 @@ public class ScreenshotListener implements ITestListener {
         ITestListener.super.onTestFailure(result);
         System.out.println("=== ScreenshotListener onTestFailure ===");
         File scrFile = ((TakesScreenshot) getChromeDriver()).getScreenshotAs(OutputType.FILE);
-        String fileName = UUID.randomUUID().toString() + getClass().getName();
-        File targetFile = new File("src/test/screenshots" + fileName + ".png");
+        String fileName = getClass().getName() + UUID.randomUUID();
+        File targetFile = new File("src/test/screenshots/" + fileName + ".png");
         System.out.println("     ----------- create failure screenshot -------------");
         try {
             FileUtils.copyFile(scrFile, targetFile);
