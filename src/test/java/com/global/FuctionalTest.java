@@ -15,10 +15,9 @@ import java.util.List;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class AppTest extends TestBase
+public class FuctionalTest extends TestBase
 {
     WebDriver driver;
-    String testName = "";
 
     @BeforeTest
     public void setupTest() {
@@ -30,16 +29,6 @@ public class AppTest extends TestBase
     void quit() {
         System.out.println("=== After Test ===");
         tearDown(driver);
-    }
-
-    /**
-     * open website
-     */
-    @Test
-    public void openUrl()
-    {
-        String actualTitle = driver.getTitle();
-        assertEquals( actualTitle, homePage.title); //"Google"); //
     }
 
     /**

@@ -3,7 +3,15 @@
 <suite name="functional suite">
     <test verbose="2" name="application testing">
         <classes>
-            <class name="com.global.AppTest"/>
+            <class name="com.global.FuctionalTest"/>
         </classes>
-    </test> <!-- Default test -->
+    </test>
 </suite> <!-- Default suite -->
+
+<!--<suite name="smoke suite">-->
+<!--<test verbose="2" name="smoke testing">-->
+<!--    <classes>-->
+<!--        <class name="com.global.SmokeTest"/>-->
+<!--    </classes>-->
+<!--</test>-->
+<!--</suite> &lt;!&ndash; Default suite &ndash;&gt;-->

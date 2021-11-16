@@ -82,10 +82,16 @@
             <filesets>
               <fileset>
                 <directory>src/test/screenshots</directory>
-                <directory>target/surefire-reports/</directory>
                 <includes>
                   <include>**/*</include>
                 </includes>
+                <followSymlinks>false</followSymlinks>
+              </fileset>
+              <fileset>
+                  <directory>target/surefire-reports/</directory>
+                  <includes>
+                    <include>**/*</include>
+                  </includes>
                 <followSymlinks>false</followSymlinks>
               </fileset>
             </filesets>
