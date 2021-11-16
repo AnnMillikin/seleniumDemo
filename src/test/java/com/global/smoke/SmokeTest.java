@@ -1,4 +1,4 @@
-package com.global;
+package com.global.smoke;
 
 import com.global.testBase.TestBase;
 import org.openqa.selenium.WebDriver;
