@@ -1,6 +1,7 @@
 package com.global;
 import com.global.testBase.TestBase;
 
+import jdk.jfr.Label;
 import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -17,6 +18,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class AppTest extends TestBase
 { // TODO add @Test back in after 508 resource limit error goes away
     WebDriver driver;
+    String testName = "";
 
     @BeforeTest
     public void setupTest() {
@@ -30,8 +32,10 @@ public class AppTest extends TestBase
         tearDown(driver);
     }
 
+    @Label("failMe")
     @Test
     public void failMe() throws Exception {
+        System.out.println("label: " + );
         throw new Exception("fail fucker"); // doesn't trigger screenshot  TODO remove
         }
 

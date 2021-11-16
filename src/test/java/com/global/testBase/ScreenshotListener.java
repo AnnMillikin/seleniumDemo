@@ -31,7 +31,7 @@ public class ScreenshotListener implements ITestListener {
         ITestListener.super.onTestFailure(result);
         System.out.println("=== ScreenshotListener onTestFailure ===");
         File scrFile = ((TakesScreenshot) getChromeDriver()).getScreenshotAs(OutputType.FILE);
-        String fileName = getClass().getName() + UUID.randomUUID();
+        String fileName = result.getTestName();  // not giving actual test name TODO
         File targetFile = new File("src/test/screenshots/" + fileName + ".png");
         System.out.println("     ----------- create failure screenshot -------------");
         try {
