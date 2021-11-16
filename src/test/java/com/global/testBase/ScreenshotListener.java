@@ -18,6 +18,7 @@ public class ScreenshotListener implements ITestListener {
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
         System.out.println("=== ScreenshotListener onTestStart ===");
+        System.out.println("The name of the testcase is :"+result.getName());  // this returns the test method name!!
     }
 
     @Override
@@ -30,9 +31,11 @@ public class ScreenshotListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
         System.out.println("=== ScreenshotListener onTestFailure ===");
+        System.out.println("The name of the testcase is :"+result.getName());
         File scrFile = ((TakesScreenshot) getChromeDriver()).getScreenshotAs(OutputType.FILE);
 
-        String fileName = result.getTestName();  // not giving actual test name TODO
+        String fileName = result.getName();
+        fileName = fileName.replace(":","");  // remove colon
         File targetFile = new File("src/test/screenshots/" + fileName + ".png");
         System.out.println("     ----------- create failure screenshot -------------");
         try {
@@ -64,7 +67,6 @@ public class ScreenshotListener implements ITestListener {
     public void onStart(ITestContext context) {
         ITestListener.super.onStart(context);
         System.out.println("=== ScreenshotListener onStart ===");
-        System.out.println("The name of the testcase is :"+context.getName());
     }
 
     @Override
