@@ -9,8 +9,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>Demo</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://automationpractice.com/index.php</url>
 
   <properties>
     <java.version>17</java.version>

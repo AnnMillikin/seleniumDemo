@@ -34,7 +34,7 @@ public class AppTest extends TestBase
 
     @Test
     public void failMe() throws Exception {
-        throw new Exception("fail fucker"); // doesn't trigger screenshot  TODO remove
+        throw new Exception("fail me"); //  TODO remove
         }
 
     /**
