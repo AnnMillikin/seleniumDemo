@@ -101,8 +101,13 @@ public class AppTest extends TestBase
             for(WebElement button: addButtons){
                 if(button.isDisplayed()) {button.click();}
             }
+            Thread.sleep(1000);
             // continue shopping
-            driver.findElement(homePage.continueShoppingBtn).click();
+//            driver.findElement(homePage.continueShoppingBtn).click();
+            List<WebElement> continueShoppingButtons = driver.findElements(homePage.continueShoppingBtn);
+            for(WebElement button: continueShoppingButtons){
+                if(button.isDisplayed()) {button.click();}
+            }
         }
         // check cart after escape key
         Actions action = new Actions(driver);
