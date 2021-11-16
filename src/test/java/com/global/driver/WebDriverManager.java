@@ -1,4 +1,5 @@
-package com.global.testBase;
+package com.global.driver;
+import com.global.testBase.ScreenshotListener;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +14,8 @@ import java.util.concurrent.TimeUnit;
 public class WebDriverManager  extends ScreenshotListener {
     public static WebDriver driver;
 
-//    public static String url = "http://automationpractice.com/index.php";
-    public static String url = "https://www.google.com/";   // TODO switch back once 508 resource error goes away
+    public static String url = "http://automationpractice.com/index.php";
+//    public static String url = "https://www.google.com/";
 
     public static WebDriver getChromeDriver() {
         return driver;

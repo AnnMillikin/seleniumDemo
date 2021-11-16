@@ -16,7 +16,7 @@ import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AppTest extends TestBase
-{ // TODO add @Test back in after 508 resource limit error goes away
+{
     WebDriver driver;
     String testName = "";
 
@@ -32,15 +32,10 @@ public class AppTest extends TestBase
         tearDown(driver);
     }
 
-    @Test
-    public void failMe() throws Exception {
-        throw new Exception("fail me"); //  TODO remove
-        }
-
     /**
      * open website
      */
-//    @Test
+    @Test
     public void openUrl()
     {
         String actualTitle = driver.getTitle();
@@ -50,7 +45,7 @@ public class AppTest extends TestBase
     /**
      * check login page title
      */
-//    @Test
+    @Test
     public void checkLoginPage()
     {
         driver = getChromeDriver();
@@ -64,7 +59,7 @@ public class AppTest extends TestBase
     /**
      * search for items
      */
-//    @Test
+    @Test
     public void searchBox()
     {
         driver = getChromeDriver();
@@ -75,7 +70,7 @@ public class AppTest extends TestBase
     /**
      * select items, add items to cart and assert the total price is > 0
      */
-//    @Test
+    @Test
     public void addToShoppingCart() throws InterruptedException {
         driver = getChromeDriver();
         String str = "Dress";

@@ -9,9 +9,8 @@ import org.testng.ITestResult;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
 
-import static com.global.testBase.WebDriverManager.getChromeDriver;
+import static com.global.driver.WebDriverManager.getChromeDriver;
 
 public class ScreenshotListener implements ITestListener {
     @Override
