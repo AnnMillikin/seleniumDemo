@@ -1,4 +1,4 @@
-package com.global.testBase;
+package com.global;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunListener;
 import org.openqa.selenium.OutputType;

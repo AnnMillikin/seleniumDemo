@@ -1,4 +1,4 @@
-package com.global.testBase;
+package com.global;
 import org.openqa.selenium.By;
 
 public class HomePage {

@@ -1,4 +1,4 @@
-package com.global.testBase;
+package com.global;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

@@ -3,34 +3,20 @@ package com.global;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.global.testBase.ScreenshotListener;
-import com.global.testBase.TestBase;
-import junit.textui.TestRunner;
+import org.junit.Assert;
+import org.junit.Test;
 import org.junit.jupiter.api.*;
-import org.junit.runner.JUnitCore;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
+/**
+ * Note to self:  adding Junit5 to classpath messes up the listener TODO
+ */
 public class AppTest extends TestBase
 {
     WebDriver driver;
-//
-//    public AppTest() {
-//        System.out.println("=== AppTest constructor ===");
-//        final JUnitCore junit = new JUnitCore();
-//        junit.addListener(new ScreenshotListener());
-//        junit.run();
-//    }
-
-    @BeforeAll
-    static void setupListener() {
-//        final JUnitCore junit = new JUnitCore();  // not working
-//        junit.addListener(new ScreenshotListener());
-//        junit.run();
-    }
 
     @BeforeEach
     void setupTest() {
@@ -48,12 +34,19 @@ public class AppTest extends TestBase
 //    @AfterAll // TODO
 //    void removeListener(){ junit.removeListener(new ScreenshotListener);}
 
+//    @Test
+//    public void failMe() throws Exception {
+//        throw new Exception("fail fucker"); // doesn't trigger screenshot
+//        //assertTrue(false); // doesn't trigger screenshot
+//        }
+    /**
+     * Rigorous Test :-) TODO remove
+     */
     @Test
-    public void failMe() throws Exception {
-        throw new Exception("fail fucker"); // doesn't trigger screenshot
-        //assertTrue(false); // doesn't trigger screenshot
-        }
-
+    public void shouldAnswerWithTrue()
+    {
+        Assert.assertTrue( false );
+    }
     /**
      * open website
      */
