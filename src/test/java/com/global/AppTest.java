@@ -32,10 +32,8 @@ public class AppTest extends TestBase
         tearDown(driver);
     }
 
-    @Label("failMe")
     @Test
     public void failMe() throws Exception {
-        System.out.println("label: " + );
         throw new Exception("fail fucker"); // doesn't trigger screenshot  TODO remove
         }
 
