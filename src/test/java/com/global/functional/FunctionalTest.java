@@ -48,7 +48,7 @@ public class FunctionalTest extends TestBase
     /**
      * search for items
      */
-//    @Test
+//    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
     public void searchBox()
     {
         driver = getChromeDriver();
@@ -59,7 +59,7 @@ public class FunctionalTest extends TestBase
     /**
      * select items, add items to cart and assert the total price is > 0
      */
-//    @Test TODO add back in before git push
+    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
     public void addToShoppingCart() throws InterruptedException {
         driver = getChromeDriver();
         String str = "Dress";
@@ -98,7 +98,7 @@ public class FunctionalTest extends TestBase
 //    /**
 //     * make payments TODO
 //     */
-//    @Test
+//    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
 //    public void makePayments()
 //    {
 //        driver = getChromeDriver();
@@ -109,7 +109,7 @@ public class FunctionalTest extends TestBase
 //    /**
 //     * click tabs TODO
 //     */
-//    @Test
+//    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
 //    public void clickTabs()
 //    {
 //        driver = getChromeDriver();
