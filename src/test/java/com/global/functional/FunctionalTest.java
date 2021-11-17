@@ -19,15 +19,15 @@ public class FunctionalTest extends TestBase
 {
     WebDriver driver;
 
-    @BeforeTest
+    @BeforeMethod
     public void setupTest() {
-        System.out.println("=== Before Test ===");
+        System.out.println("=== Functional: Before Test ===");
           driver = setChromeDriver();
     }
 
-    @AfterTest
+    @AfterMethod
     void quit() {
-        System.out.println("=== After Test ===");
+        System.out.println("=== Functional: After Test ===");
         tearDown(driver);
     }
 

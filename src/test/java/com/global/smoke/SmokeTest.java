@@ -2,24 +2,22 @@ package com.global.smoke;
 
 import com.global.testBase.TestBase;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static org.testng.AssertJUnit.assertEquals;
 
 public class SmokeTest extends TestBase {
     WebDriver driver;
 
-    @BeforeTest
+    @BeforeMethod
     public void setupTest() {
-        System.out.println("=== Before Test ===");
+        System.out.println("=== Smoke: Before Test ===");
         driver = setChromeDriver();
     }
 
-    @AfterTest
+    @AfterMethod
     void quit() {
-        System.out.println("=== After Test ===");
+        System.out.println("=== Smoke: After Test ===");
         tearDown(driver);
     }
 
