@@ -14,8 +14,8 @@ import java.util.concurrent.TimeUnit;
 public class WebDriverManager  extends ScreenshotListener {
     public static WebDriver driver;
 
-    public static String url = "http://automationpractice.com/index.php";
-//    public static String url = "https://www.google.com/";
+//    public static String url = "http://automationpractice.com/index.php";
+    public static String url = "https://www.google.com/";
 
     public static WebDriver getChromeDriver() {
         return driver;

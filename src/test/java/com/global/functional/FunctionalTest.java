@@ -15,7 +15,7 @@ import java.util.List;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class FuctionalTest extends TestBase
+public class FunctionalTest extends TestBase
 {
     WebDriver driver;
 
@@ -34,7 +34,7 @@ public class FuctionalTest extends TestBase
     /**
      * check login page title
      */
-    @Test
+    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
     public void checkLoginPage()
     {
         driver = getChromeDriver();
@@ -48,7 +48,7 @@ public class FuctionalTest extends TestBase
     /**
      * search for items
      */
-    @Test
+//    @Test
     public void searchBox()
     {
         driver = getChromeDriver();

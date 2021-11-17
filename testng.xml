@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="functional suite">
-    <test verbose="2" name="application testing">
-        <classes>
-            <class name="com.global.functional.FuctionalTest"/>
-        </classes>
+<suite name="regression suite">
+    <test verbose="2" name="test">
+        <packages>
+            <package name="com.global.functional.*"/>
+            <package name="com.global.smoke.*"/>
+        </packages>
     </test>
-
-    <test verbose="2" name="smoke testing">
-        <classes>
-            <class name="com.global.smoke.SmokeTest"/>
-        </classes>
-</test>
-</suite> <!-- Default suite -->
+</suite>

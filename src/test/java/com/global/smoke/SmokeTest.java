@@ -26,7 +26,7 @@ public class SmokeTest extends TestBase {
     /**
      * open website and confirm title
      */
-    @Test
+    @Test(groups={"smoke"})
     public void openUrl()
     {
         String actualTitle = driver.getTitle();
