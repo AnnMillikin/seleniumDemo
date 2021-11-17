@@ -1,6 +1,7 @@
 package com.global.driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -17,13 +18,13 @@ public class WebDriverManager {// TODO } extends TestCommon {
 
     @BeforeMethod
     public void setupTest() {
-        System.out.println("=== TestBase: Before  ===");
+        Reporter.log("=== WDM: BeforeMethod  ===");
         driver = setChromeDriver();
     }
 
     @AfterMethod
     public void quit() {
-        System.out.println("=== TestBase: After  ===");
+        Reporter.log("=== WDM: AfterMethod  ===");
         tearDown(driver);
     }
 

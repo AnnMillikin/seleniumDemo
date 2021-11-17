@@ -21,13 +21,13 @@ public class FunctionalTest extends TestBase
 
 //    @BeforeMethod
 //    public void setupTest() {
-//        System.out.println("=== Functional: Before Test ===");
+//        Reporter.log("=== Functional: Before Test ===");
 //          driver = setChromeDriver();
 //    }
 //
 //    @AfterMethod
 //    void quit() {
-//        System.out.println("=== Functional: After Test ===");
+//        Reporter.log("=== Functional: After Test ===");
 //        tearDown(driver);
 //    }
 
@@ -40,8 +40,8 @@ public class FunctionalTest extends TestBase
 //        driver = getChromeDriver();
 //        driver.findElement(homePage.signIn).click();
 //        String actualTitle = driver.getTitle();
-//        System.out.println("actualTitle: "+actualTitle);
-//        System.out.println("expectedTitle: "+homePage.createAccountTitle);
+//        Reporter.log("actualTitle: "+actualTitle);
+//        Reporter.log("expectedTitle: "+homePage.createAccountTitle);
 //        assertEquals(actualTitle,homePage.createAccountTitle);
     }
 
@@ -91,7 +91,7 @@ public class FunctionalTest extends TestBase
 //        String totalPriceStr = driver.findElement(homePage.totalPrice).getText();
 //        totalPriceStr= totalPriceStr.replace("$", "");
 //        double totalPrice = Double.valueOf(totalPriceStr);
-//        System.out.println(totalPrice);
+//        Reporter.log(totalPrice);
 //        assertTrue( totalPrice>0, "Total price: " + totalPrice);
     }
 

@@ -6,6 +6,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,27 +17,27 @@ public class ScreenshotListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
-        System.out.println("=== ScreenshotListener onTestStart ===");
-        System.out.println("The name of the testcase is :"+result.getName());  // this returns the test method name!!
+        Reporter.log("=== ScreenshotListener onTestStart ===");
+        Reporter.log("The name of the testcase is :"+result.getName());  // this returns the test method name!!
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
-        System.out.println("=== ScreenshotListener onTestSuccess ===");
+        Reporter.log("=== ScreenshotListener onTestSuccess ===");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
-        System.out.println("=== ScreenshotListener onTestFailure ===");
-        System.out.println("The name of the testcase is :"+result.getName());
+        Reporter.log("=== ScreenshotListener onTestFailure ===");
+        Reporter.log("The name of the testcase is :"+result.getName());
         File scrFile = ((TakesScreenshot) getChromeDriver()).getScreenshotAs(OutputType.FILE);
 
         String fileName = result.getName();
         fileName = fileName.replace(":","");  // remove colon
         File targetFile = new File("src/test/screenshots/" + fileName + ".png");
-        System.out.println("     ----------- create failure screenshot -------------");
+        Reporter.log("     ----------- create failure screenshot -------------");
         try {
             FileUtils.copyFile(scrFile, targetFile);
         } catch (IOException e) {
@@ -47,30 +48,30 @@ public class ScreenshotListener implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         ITestListener.super.onTestSkipped(result);
-        System.out.println("=== ScreenshotListener onTestSkipped ===");
+        Reporter.log("=== ScreenshotListener onTestSkipped ===");
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         ITestListener.super.onTestFailedButWithinSuccessPercentage(result);
-        System.out.println("=== ScreenshotListener onTestFailedButWithinSuccessPercentage ===");
+        Reporter.log("=== ScreenshotListener onTestFailedButWithinSuccessPercentage ===");
     }
 
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
         ITestListener.super.onTestFailedWithTimeout(result);
-        System.out.println("=== ScreenshotListener onTestFailedWithTimeout ===");
+        Reporter.log("=== ScreenshotListener onTestFailedWithTimeout ===");
     }
 
     @Override
     public void onStart(ITestContext context) {
         ITestListener.super.onStart(context);
-        System.out.println("=== ScreenshotListener onStart ===");
+        Reporter.log("=== ScreenshotListener onStart ===");
     }
 
     @Override
     public void onFinish(ITestContext context) {
         ITestListener.super.onFinish(context);
-        System.out.println("=== ScreenshotListener onFinish ===");
+        Reporter.log("=== ScreenshotListener onFinish ===");
     }
 }

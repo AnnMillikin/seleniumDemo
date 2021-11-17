@@ -11,13 +11,13 @@ public class SmokeTest extends TestBase {
 
 //    @BeforeMethod
 //    public void setupTest() {
-//        System.out.println("=== Smoke: Before Test ===");
+//        Reporter.log("=== Smoke: Before Test ===");
 //        driver = setChromeDriver();
 //    }
 //
 //    @AfterMethod
 //    void quit() {
-//        System.out.println("=== Smoke: After Test ===");
+//        Reporter.log("=== Smoke: After Test ===");
 //        tearDown(driver);
 //    }
 
