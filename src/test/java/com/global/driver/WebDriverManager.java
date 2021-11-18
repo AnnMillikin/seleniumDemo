@@ -5,7 +5,7 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class WebDriverManager {// TODO } extends TestCommon {
+public class WebDriverManager {
 
     public static String url = "http://automationpractice.com/index.php";
 //    public static String url = "https://www.google.com/";
@@ -18,20 +18,20 @@ public class WebDriverManager {// TODO } extends TestCommon {
 
     @BeforeMethod
     public void setupTest() {
-        Reporter.log("\n=== WDM: BeforeMethod  ===");
+        Reporter.log("\n=== WDM: BeforeMethod creating a chrome driver ");
         driver = setChromeDriver();
     }
 
     @AfterMethod
     public void quit() {
-        Reporter.log("\n=== WDM: AfterMethod  ===");
+        Reporter.log("\n=== WDM: AfterMethod tearing down a chrome driver ");
         tearDown(driver);
     }
 
     public static WebDriver setChromeDriver() {
         System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
 
-        // Instantiate a ChromeDriver class.
+        Reporter.log(" Instantiate a ChromeDriver class.", true);
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.navigate().to(url);

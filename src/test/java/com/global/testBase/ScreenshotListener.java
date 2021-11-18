@@ -17,20 +17,20 @@ public class ScreenshotListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
-        Reporter.log("\n=== Test Start: "+result.getName()+ " ===", true); // this returns the test method name!!
+        Reporter.log("\n=== Test Start: "+result.getName()+ "", true); // this returns the test method name!!
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
-        Reporter.log("\n=== TestSuccess: "+result.getName()+" ===", true);
+        Reporter.log("\n=== TestSuccess: "+result.getName()+" ", true);
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
         String fileName = (result.getName()).replace(":",""); // remove colon
-        Reporter.log("\n=== Test Failure: "+fileName+" ===", true);
+        Reporter.log("\n=== Test Failure: "+fileName+" ", true);
         fileName = fileName + ".jpg";  // append .jpg
 //        Reporter.log("\n"a{background-color\: Color.red; color: Color.white;}""); // TODO make fancier reporting if not built in
         File scrFile = ((TakesScreenshot) getChromeDriver()).getScreenshotAs(OutputType.FILE);
@@ -51,30 +51,30 @@ public class ScreenshotListener implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         ITestListener.super.onTestSkipped(result);
-        Reporter.log("\n=== Test Skipped: "+result.getName()+" ===", true);
+        Reporter.log("\n=== Test Skipped: "+result.getName()+" ", true);
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         ITestListener.super.onTestFailedButWithinSuccessPercentage(result);
-        Reporter.log("\n=== onTestFailedButWithinSuccessPercentage: "+result.getName()+" ===", true);
+        Reporter.log("\n=== onTestFailedButWithinSuccessPercentage: "+result.getName()+" ", true);
     }
 
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
         ITestListener.super.onTestFailedWithTimeout(result);
-        Reporter.log("\n=== onTestFailedWithTimeout: "+result.getName()+" ===", true);
+        Reporter.log("\n=== onTestFailedWithTimeout: "+result.getName()+" ", true);
     }
 
     @Override
     public void onStart(ITestContext context) {
         ITestListener.super.onStart(context);
-        Reporter.log("\n=== Starting ===");
+        Reporter.log("\n=== Starting ");
     }
 
     @Override
     public void onFinish(ITestContext context) {
         ITestListener.super.onFinish(context);
-        Reporter.log("\n=== Finished ===", true);
+        Reporter.log("\n=== Finished ", true);
     }
 }

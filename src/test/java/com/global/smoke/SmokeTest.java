@@ -16,7 +16,6 @@ public class SmokeTest extends TestBase {
     public void openUrl()
     {
         String actualTitle = driver.getTitle();
-        assertTrue(false);
         assertEquals( actualTitle, homePage.title); //"Google"); //
     }
 
