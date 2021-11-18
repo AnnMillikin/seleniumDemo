@@ -8,7 +8,6 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
