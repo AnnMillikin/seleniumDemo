@@ -18,13 +18,13 @@ public class WebDriverManager {// TODO } extends TestCommon {
 
     @BeforeMethod
     public void setupTest() {
-        Reporter.log("=== WDM: BeforeMethod  ===");
+        Reporter.log("\n=== WDM: BeforeMethod  ===");
         driver = setChromeDriver();
     }
 
     @AfterMethod
     public void quit() {
-        Reporter.log("=== WDM: AfterMethod  ===");
+        Reporter.log("\n=== WDM: AfterMethod  ===");
         tearDown(driver);
     }
 

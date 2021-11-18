@@ -21,13 +21,13 @@ public class FunctionalTest extends TestBase
 
 //    @BeforeMethod
 //    public void setupTest() {
-//        Reporter.log("=== Functional: Before Test ===");
+//        Reporter.log("\n=== Functional: Before Test ===");
 //          driver = setChromeDriver();
 //    }
 //
 //    @AfterMethod
 //    void quit() {
-//        Reporter.log("=== Functional: After Test ===");
+//        Reporter.log("\n=== Functional: After Test ===");
 //        tearDown(driver);
 //    }
 
@@ -40,8 +40,8 @@ public class FunctionalTest extends TestBase
 //        driver = getChromeDriver();
 //        driver.findElement(homePage.signIn).click();
 //        String actualTitle = driver.getTitle();
-//        Reporter.log("actualTitle: "+actualTitle);
-//        Reporter.log("expectedTitle: "+homePage.createAccountTitle);
+//        Reporter.log("\nactualTitle: "+actualTitle);
+//        Reporter.log("\nexpectedTitle: "+homePage.createAccountTitle);
 //        assertEquals(actualTitle,homePage.createAccountTitle);
     }
 

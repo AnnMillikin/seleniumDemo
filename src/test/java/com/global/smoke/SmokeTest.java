@@ -5,21 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.assertTrue;
 
 public class SmokeTest extends TestBase {
-//    WebDriver driver;
-
-//    @BeforeMethod
-//    public void setupTest() {
-//        Reporter.log("=== Smoke: Before Test ===");
-//        driver = setChromeDriver();
-//    }
-//
-//    @AfterMethod
-//    void quit() {
-//        Reporter.log("=== Smoke: After Test ===");
-//        tearDown(driver);
-//    }
 
     /**
      * open website and confirm title
@@ -28,6 +16,7 @@ public class SmokeTest extends TestBase {
     public void openUrl()
     {
         String actualTitle = driver.getTitle();
+        assertTrue(false);
         assertEquals( actualTitle, homePage.title); //"Google"); //
     }
 

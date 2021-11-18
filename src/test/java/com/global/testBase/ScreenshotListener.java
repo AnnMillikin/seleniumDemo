@@ -8,6 +8,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -17,27 +18,30 @@ public class ScreenshotListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
-        Reporter.log("=== ScreenshotListener onTestStart ===");
-        Reporter.log("The name of the testcase is :"+result.getName());  // this returns the test method name!!
+        Reporter.log("\n=== Test Start: "+result.getName()+ " ===", true); // this returns the test method name!!
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
-        Reporter.log("=== ScreenshotListener onTestSuccess ===");
+        Reporter.log("\n=== TestSuccess: "+result.getName()+" ===", true);
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
-        Reporter.log("=== ScreenshotListener onTestFailure ===");
-        Reporter.log("The name of the testcase is :"+result.getName());
+        String fileName = (result.getName()).replace(":",""); // remove colon
+        Reporter.log("\n=== Test Failure: "+fileName+" ===", true);
+        fileName = fileName + ".jpg";  // append .jpg
+//        Reporter.log("\n"a{background-color\: Color.red; color: Color.white;}""); // TODO make fancier reporting if not built in
         File scrFile = ((TakesScreenshot) getChromeDriver()).getScreenshotAs(OutputType.FILE);
 
-        String fileName = result.getName();
-        fileName = fileName.replace(":","");  // remove colon
-        File targetFile = new File("src/test/screenshots/" + fileName + ".png");
-        Reporter.log("     ----------- create failure screenshot -------------");
+
+        File targetFile = new File("target/surefire-reports/" + fileName);
+        Reporter.log("     ----------- screenshot: ", false);
+        Reporter.log("\n<a href=\""+fileName+"\"> Click here </a>", false);
+        //           <span style="background-color:#00FF00">Green Text</span>
+
         try {
             FileUtils.copyFile(scrFile, targetFile);
         } catch (IOException e) {
@@ -48,30 +52,30 @@ public class ScreenshotListener implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         ITestListener.super.onTestSkipped(result);
-        Reporter.log("=== ScreenshotListener onTestSkipped ===");
+        Reporter.log("\n=== Test Skipped: "+result.getName()+" ===", true);
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         ITestListener.super.onTestFailedButWithinSuccessPercentage(result);
-        Reporter.log("=== ScreenshotListener onTestFailedButWithinSuccessPercentage ===");
+        Reporter.log("\n=== onTestFailedButWithinSuccessPercentage: "+result.getName()+" ===", true);
     }
 
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
         ITestListener.super.onTestFailedWithTimeout(result);
-        Reporter.log("=== ScreenshotListener onTestFailedWithTimeout ===");
+        Reporter.log("\n=== onTestFailedWithTimeout: "+result.getName()+" ===", true);
     }
 
     @Override
     public void onStart(ITestContext context) {
         ITestListener.super.onStart(context);
-        Reporter.log("=== ScreenshotListener onStart ===");
+        Reporter.log("\n=== Starting ===");
     }
 
     @Override
     public void onFinish(ITestContext context) {
         ITestListener.super.onFinish(context);
-        Reporter.log("=== ScreenshotListener onFinish ===");
+        Reporter.log("\n=== Finished ===", true);
     }
 }
