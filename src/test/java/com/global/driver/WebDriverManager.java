@@ -11,8 +11,8 @@ public class WebDriverManager {
         return url;
     }
 
-    public static String url = "http://automationpractice.com/index.php";
-//    public static String url = "https://www.google.com/";
+//    public static String url = "http://automationpractice.com/index.php";
+    public static String url = "https://www.google.com/"; // TODO switch back
 
     public static WebDriver getChromeDriver() {
         return driver;

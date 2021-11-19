@@ -26,7 +26,7 @@ public class FunctionalTest extends TestBase
     /**
      * check login page title
      */
-//    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
+    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
     public void checkLoginPage()
     {
         driver.findElement(homePage.signIn).click();
@@ -39,7 +39,7 @@ public class FunctionalTest extends TestBase
     /**
      * search for items
      */
-//    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
+    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
     public void searchBox()
     {
         int size = getSearchSize("Dress");
@@ -49,7 +49,7 @@ public class FunctionalTest extends TestBase
     /**
      * select items, add items to cart and assert the total price is > 0
      */
-//    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
+    @Test(groups = {"functional"}, dependsOnGroups = {"smoke"})
     public void addToShoppingCart() throws InterruptedException {
         String str = "Dress";
         int size = getSearchSize(str);
@@ -94,7 +94,7 @@ public class FunctionalTest extends TestBase
         int responseGreaterThan2seconds=0;
         int numberBrokenLinks=0;
         List<WebElement> links = driver.findElements(By.tagName("a"));
-        Reporter.log("about to check the response code of "+ links.size()+ " links", true);
+        Reporter.log("\nabout to check the response code of "+ links.size()+ " links", true);
 
         Iterator<WebElement> it = links.iterator();
 
@@ -122,15 +122,15 @@ public class FunctionalTest extends TestBase
 
         while(it.hasNext()){
             url = it.next().getAttribute("href");
-            Reporter.log("checking url: " + url, true);
+            Reporter.log("\nchecking url: " + url, true);
 
             if(url == null || url.isEmpty()){
-                Reporter.log("URL is either not configured for anchor tag or it is empty", true);
+                Reporter.log("\nURL is either not configured for anchor tag or it is empty", true);
                 continue;
             }
 
             if(!url.startsWith(homePage)){
-                Reporter.log("URL belongs to another domain, skipping it.", true);
+                Reporter.log("\nURL belongs to another domain, skipping it.", true);
                 continue;
             }
 
@@ -154,8 +154,8 @@ public class FunctionalTest extends TestBase
                     Reporter.log(url+" is a valid link", true);
                 }
         }
-        Reporter.log("\nNumber of broken links: "+numberBrokenLinks, true); // TODO write to spreadsheet
-        Reporter.log("\nNumber of links with greater than 2 second response time: "+responseGreaterThan2seconds, true);
+        Reporter.log("\n\nNumber of broken links: "+numberBrokenLinks, true); // TODO write to spreadsheet
+        Reporter.log("\n\nNumber of links with greater than 2 second response time: "+responseGreaterThan2seconds, true);
 
         // writing the data into the sheets...
         for (String key : keyid) {
