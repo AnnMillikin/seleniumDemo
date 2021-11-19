@@ -7,6 +7,10 @@ import org.testng.annotations.BeforeMethod;
 
 public class WebDriverManager {
 
+    public static String getUrl() {
+        return url;
+    }
+
     public static String url = "http://automationpractice.com/index.php";
 //    public static String url = "https://www.google.com/";
 

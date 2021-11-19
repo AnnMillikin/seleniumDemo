@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" name="regression suite" parallel="classes" verbose="10">
+<suite thread-count="2" name="regression suite"  verbose="10">
+<!--    parallel="classes"-->
     <test verbose="2" name="test">
         <packages>
             <package name="com.global.functional.*"/>
